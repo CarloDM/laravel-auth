@@ -17,7 +17,7 @@
                     </div>
                     @endif
 
-                    admin dashboard
+                    admin dashboard <br> {{Auth::user()->name}} ID: {{Auth::id()}} <br> email: {{Auth::user()->email}}
                 </div>
             </div>
         </div>
