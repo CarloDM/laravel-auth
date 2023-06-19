@@ -2,36 +2,27 @@
 @section('content')
 
 <div class="container p-3 text-center">
-  <h2 class="fs-4 text-secondary my-4">Posts</h2>
+  <h2 class="fs-4 text-secondary my-4">Elenco Posts</h2>
   <div class="">
 
-    <table class="table table-dark table-striped">
-      <thead>
+    <table class="table table-info table-striped">
+      <thead></thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">titolo</th>
+          <th scope="col">data</th>
         </tr>
       </thead>
       <tbody>
+        @foreach ($posts as  $post)
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+            <th scope="row">{{$post->id}}</th>
+            <th scope="row">{{$post->title}}</th>
+            <th scope="row">{{$post->date}}</th>
+            <th scope="row"><a class="btn btn-dark" href="">link</a></th>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        @endforeach
+
       </tbody>
 
     </table>
