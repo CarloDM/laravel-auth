@@ -14,7 +14,7 @@ class Post extends Model
 
       $slug = Str::slug($str, '-');
       $original_slug = $slug;
-      $slug_exist = Post::where('slug', $slug)->first;
+      $slug_exist = Post::where('slug', $slug)->first();
       $c = 1;
       while($slug_exist){
         $slug = $original_slug . '-' . $c;
