@@ -2,7 +2,7 @@
 @section('content')
 <div class="container p-3 text-center">
 
-  <h1 class="fs-2 text-secondary my-4">crea</h1>
+  <h1 class="fs-2 text-secondary my-4">{{$title}}</h1>
 
   {{-- @if ($errors->any())
   <div class="message">
@@ -13,15 +13,18 @@
   </div>
   @endif --}}
 
-  <form action="{{ route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
+  <form action="{{ $route }}" method="POST" enctype="multipart/form-data">
     @csrf
+    @method('{{$method}}')
     <div class="mb-3">
 
       <label for="title" class="form-label">Title</label>
       <input
         id="title"
         name="title"
-        value="{{old('title')}}"
+
+        value="{{old('title', $post->title)}}"
+
         class="form-control @error('title') is-invalid @enderror"
         placeholder="TItle"
         type="text"

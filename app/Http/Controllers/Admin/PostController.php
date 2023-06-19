@@ -35,9 +35,11 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-
-      return view('admin.posts.create-edit');
+    { $post = new Post();
+      $title = 'Crea nuovo post';
+      $method = 'POST';
+      $route = route('admin.posts.store');
+      return view('admin.posts.create-edit', compact('title', 'method','route','post') );
     }
 
     /**
@@ -96,7 +98,10 @@ class PostController extends Controller
      */
     public function edit(Post  $post)
     {
-        return view('admin.posts.create-edit' );
+        $title = 'Edit post di:' . $post->title;
+        $method = 'PUT';
+        $route = route('admin.posts.update', $post);
+        return view('admin.posts.create-edit', compact('title','method','route','post') );
     }
 
     /**
