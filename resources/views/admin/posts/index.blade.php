@@ -8,9 +8,9 @@
     <table class="table table-info table-striped">
       <thead></thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">titolo</th>
-          <th scope="col">data</th>
+          <th scope="col"><a href="{{route('admin.orderby', ['direction'=> $direction] )}}">ID</a></th>
+          <th scope="col">Titolo</th>
+          <th scope="col">Data</th>
         </tr>
       </thead>
       <tbody>
@@ -18,14 +18,19 @@
         <tr>
             <th scope="row">{{$post->id}}</th>
             <th scope="row">{{$post->title}}</th>
-            <th scope="row">{{$post->date}}</th>
-            <th scope="row"><a class="btn btn-dark" href="">link</a></th>
+            @php $date = date_create($post->date);@endphp
+            <th scope="row">{{date_format($date, 'd/m/y') }}</th>
+            <th scope="row"><a class="btn btn-dark p-2" href="">leggi</a></th>
         </tr>
         @endforeach
 
       </tbody>
 
     </table>
+
+    <div>
+      {{$posts->links()}}
+    </div>
 
 
 
