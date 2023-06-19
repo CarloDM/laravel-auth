@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark  shadow-sm">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="{{ route('admin.home') }}">
                     <div class="logo_laravel">
+                      logo
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
@@ -14,7 +15,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" target="_black" href="{{route('home')}}">vai al sito</a>
                         </li>
                     </ul>
 
