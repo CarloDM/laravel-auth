@@ -3,7 +3,16 @@
 <div class="container p-3 text-center">
   <h1 class="fs-2 text-secondary my-4">crea</h1>
 
-  <form action="{{ route('admin.posts.store')}}" method="POST">
+  {{-- @if ($errors->any())
+  <div class="message">
+    @foreach ($errors->all() as $error )
+    <span class="fs-6">{{$error}}</span>
+    @endforeach
+
+  </div>
+  @endif --}}
+
+  <form action="{{ route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
 
@@ -12,11 +21,11 @@
         id="title"
         name="title"
         value="{{old('title')}}"
-        class="form-control"
+        class="form-control @error('title') is-invalid @enderror"
         placeholder="TItle"
         type="text"
       >
-      <div id="" class="form-text"></div>
+      @error('title')<div id="" class="form-text">{{$message}}</div>  @enderror
     </div>
         {{-- --------------------------- --}}
     <div class="mb-3">
@@ -35,7 +44,7 @@
         {{-- --------------------------- --}}
     <div class="mb-3">
 
-      <label for="title" class="form-label">testo</label>
+      <label for="text" class="form-label">testo</label>
       <textarea
       id="text"
       name="text"
@@ -46,6 +55,19 @@
       >
       {{old('text')}}
       </textarea>
+      @error('text')<div id="" class="form-text">{{$message}}</div>  @enderror<div id="" class="form-text"></div>
+    </div>
+    {{-- --------------------------- --}}
+    <div class="mb-3">
+
+      <label for="image" class="form-label">file</label>
+      <input
+        id="image"
+        name="image"
+        class="form-control"
+        placeholder=""
+        type="file"
+      >
       <div id="" class="form-text"></div>
     </div>
         {{-- --------------------------- --}}

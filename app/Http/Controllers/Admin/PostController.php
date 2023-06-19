@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Composer;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -44,21 +46,33 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-
         // dd($request->all());
         $form = $request->all();
+
+      if(array_key_exists('image', $form)){
+        $form['image_original_name'] = $request->file('image')->getClientOriginalName();
+        $form['image_path'] = Storage::put( 'uploads', $form['image'] );
+        // dd('immagine presente' , $form);
+      }
+
         $new_post = new Post();
-        $new_post->title = $form['title'];
         $new_post->slug = Post::generateSlug($form['title']);
+        $new_post->title = $form['title'];
         $new_post->text = $form['text'];
         $new_post->reading_time = $form['reading_time'];
         $new_post->date = date('Y-m-d');
+        $new_post->image_original_name = $form['image_original_name'];
+        $new_post->image_path = $form['image_path'];
         // dd($new_post);
         $new_post->save();
         return redirect()->route('admin.posts.show', $new_post);
 
+        /**------------ fillable metod
+        $new_post = new Post();
+        $new_post->fill($form);
+        --------------------------- */
     }
 
     /**
