@@ -38,7 +38,7 @@
       <input
         id="reading_time"
         name="reading_time"
-        value="{{old('reading_time')}}"
+        value="{{old('reading_time', $post->reading_time)}}"
         class="form-control"
         placeholder=""
         type="number"
@@ -58,7 +58,7 @@
       placeholder="inserisci testo"
       type="text"
       >
-      {{old('text')}}
+      {{old('text', $post->text )}}
       </textarea>
       @error('text')<div id="" class="form-text">{{$message}}</div>  @enderror<div id="" class="form-text"></div>
     </div>
