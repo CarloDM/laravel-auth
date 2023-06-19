@@ -4,7 +4,7 @@
 
   <ul>
     <li><a href="{{route('admin.home')}}">dash</a></li>
-    <li><a href="#">post</a></li>
+    <li><a href="{{route('admin.posts.index')}}">post</a></li>
     <li><a href="#">new post</a></li>
   </ul>
 
