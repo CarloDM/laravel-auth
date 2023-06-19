@@ -71,5 +71,14 @@
       invia
     </button>
   </form>
+
+
+  <script>
+    ClassicEditor
+        .create( document.querySelector( '#text' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 </div>
 @endsection
