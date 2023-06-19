@@ -2,7 +2,10 @@
 @section('content')
 
 <div class="container p-3 text-center">
-  <h2 class="fs-4 text-secondary my-4">Elenco Posts</h2>
+  <h2 class="fs-4 text-secondary my-3">Elenco Posts</h2>
+
+
+
   <div class="">
 
     <table class="table table-info table-striped">
@@ -21,6 +24,7 @@
             @php $date = date_create($post->date);@endphp
             <th scope="row">{{date_format($date, 'd/m/y') }}</th>
             <th scope="row"><a class="btn btn-dark p-2" href="{{route('admin.posts.show', $post )}}">leggi</a></th>
+            <th scope="row"></th>
         </tr>
         @endforeach
 
