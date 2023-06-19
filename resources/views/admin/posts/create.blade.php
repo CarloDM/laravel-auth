@@ -46,9 +46,10 @@
 
       <label for="text" class="form-label">testo</label>
       <textarea
+      class="form-control"
+
       id="text"
       name="text"
-      class="form-control"
       rows="10"
       placeholder="inserisci testo"
       type="text"
@@ -64,10 +65,12 @@
       <input
         id="image"
         name="image"
+        onchange="previewImg(event)"
         class="form-control"
         placeholder=""
         type="file"
       >
+      <img id="preview" src="" alt="" style="width: 200px" class="mt-4">
       <div id="" class="form-text"></div>
     </div>
         {{-- --------------------------- --}}
@@ -87,6 +90,12 @@
         .catch( error => {
             console.error( error );
         } );
+
+    function previewImg(event){
+      const tagImg = document.getElementById('preview')
+      tagImg.src = URL.createObjectURL(event.target.files[0])
+      // console.log(URL.createObjectURL(event.target.files[0]))
+    }
 </script>
 </div>
 @endsection
