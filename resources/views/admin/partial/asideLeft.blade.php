@@ -1,6 +1,13 @@
-<aside class="p-4 h-100 ">
+<aside class="p-2 h-100">
+<h6>Aside bar</h6>
+<nav class="">
 
-<h3>Aside bar</h3>
+  <ul>
+    <li><a href="{{route('admin.home')}}">dash</a></li>
+    <li><a href="#">post</a></li>
+    <li><a href="#">new post</a></li>
+  </ul>
 
+</nav>
 </aside>
 

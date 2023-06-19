@@ -29,13 +29,15 @@
 
       <div class="container-fluid row h-100">
 
-        <div class="aside col-3 bg-dark text-white">
-        @include('admin.partial.asideLeft')</div>
+        <div class="aside col-2 bg-dark text-white">
+          @auth
+              @include('admin.partial.asideLeft')
+          @endauth
+        </div>
 
-        <main class="col">
-        @yield('content')</main>
-
-      </div>
+        <main class="col overflow-scroll">
+          @yield('content')</main>
+        </div>
 
     </div>
 </body>

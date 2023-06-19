@@ -1,26 +1,15 @@
 @extends('layouts.admin')
-
 @section('content')
-<div class="container">
-    <h2 class="fs-4 text-secondary my-4">
-        {{ __('Dashboard') }}
-    </h2>
-    <div class="row justify-content-center">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">{{ __('User Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
 
-                    admin dashboard <br> {{Auth::user()->name}} ID: {{Auth::id()}} <br> email: {{Auth::user()->email}}
-                </div>
-            </div>
-        </div>
+<div class="container p-3 text-center">
+    <h2 class="fs-4 text-secondary my-4">home dashboard</h2>
+
+    <div class="">
+
+
+
+
     </div>
 </div>
 @endsection
