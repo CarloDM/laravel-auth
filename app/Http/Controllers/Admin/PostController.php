@@ -55,7 +55,9 @@ class PostController extends Controller
      */
     public function show(Post  $post)
     {
-        return view('admin.posts.show', compact('post'));
+      $date = date_create($post->date);
+      $dataformattata = date_format($date, 'd/m/y');
+      return view('admin.posts.show', compact('post','dataformattata'));
     }
 
     /**

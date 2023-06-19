@@ -9,7 +9,7 @@
   </div>
 
   <div class=" p-1  border rounded-3  text-end">
-    <span class="">{{$post->date}}</span>
+    <span class="">{{$dataformattata}}</span>
   </div>
 
 
