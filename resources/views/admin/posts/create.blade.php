@@ -49,20 +49,6 @@
       <div id="" class="form-text"></div>
     </div>
         {{-- --------------------------- --}}
-    <div class="mb-3">
-
-      <label for="reading_time" class="form-label">reading_time</label>
-      <input
-        id="reading_time"
-        name="reading_time"
-        value="{{old('reading_time')}}"
-        class="form-control"
-        placeholder=""
-        type="number"
-      >
-      <div id="" class="form-text"></div>
-    </div>
-        {{-- --------------------------- --}}
 
     <button
       class="btn btn-dark "
