@@ -24,6 +24,7 @@
             @php $date = date_create($post->date);@endphp
             <th scope="row">{{date_format($date, 'd/m/y') }}</th>
             <th scope="row"><a class="btn btn-dark p-2" href="{{route('admin.posts.show', $post )}}">leggi</a></th>
+            <th scope="row"><a class="btn btn-primary p-2" href="{{route('admin.posts.edit', $post )}}">edit</a></th>
             <th scope="row"></th>
         </tr>
         @endforeach

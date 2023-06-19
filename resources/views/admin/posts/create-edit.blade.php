@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container p-3 text-center">
+
   <h1 class="fs-2 text-secondary my-4">crea</h1>
 
   {{-- @if ($errors->any())
