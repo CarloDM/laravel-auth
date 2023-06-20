@@ -74,6 +74,9 @@
         placeholder=""
         type="file"
       >
+      <div class="card w-75 p-5 m-auto ">
+        <img class="w-100 m-auto" src="{{asset('storage/' . $post->image_path ) }}" alt="{{$post->image_path}}">
+      </div>
       <img id="preview" src="" alt="" style="width: 200px" class="mt-4">
       <div id="" class="form-text"></div>
     </div>

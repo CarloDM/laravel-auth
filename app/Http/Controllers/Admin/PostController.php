@@ -111,9 +111,23 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, Post  $post)
     {
-        //
+        $form = $request->all();
+        if($form['title'] !== $post->title){
+            $form['slug'] = Post::generateSlug($form['title']) ;
+        }else{
+            $form['slug'] = $post->slug;
+        }
+
+        $form['date'] = date('Y-m-d');
+        $post->update($form);
+
+
+
+        $date = date_create($post->date);
+        $dataformattata = date_format($date, 'd/m/y');
+        return redirect()->route('admin.posts.show', $post);
     }
 
     /**
@@ -122,8 +136,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('admin.posts.index', $post);
     }
 }
