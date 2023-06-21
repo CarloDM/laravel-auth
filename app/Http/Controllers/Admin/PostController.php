@@ -48,16 +48,16 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(PostRequest $request, Post $post)
     {
         // dd($request->all());
-        $form = $request->all();
-
-      if(array_key_exists('image', $form)){
-        $form['image_original_name'] = $request->file('image')->getClientOriginalName();
-        $form['image_path'] = Storage::put( 'uploads', $form['image'] );
-        // dd('immagine presente' , $form);
-      }
+        $form = $request;
+        // dd($request);
+      // if(array_key_exists('image', $form)){
+      //   $form['image_original_name'] = $request->file('image')->getClientOriginalName();
+      //   $form['image_path'] = Storage::put( 'uploads', $form['image'] );
+      //   // dd('immagine presente' , $form);
+      // }
 
         $new_post = new Post();
         $new_post->slug = Post::generateSlug($form['title']);
@@ -67,6 +67,7 @@ class PostController extends Controller
         $new_post->date = date('Y-m-d');
         $new_post->image_original_name = $form['image_original_name'];
         $new_post->image_path = $form['image_path'];
+        // dd($request->image);
         // dd($new_post);
         $new_post->save();
         return redirect()->route('admin.posts.show', $new_post);

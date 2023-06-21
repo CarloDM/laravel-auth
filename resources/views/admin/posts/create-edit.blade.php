@@ -15,7 +15,7 @@
 
   <form action="{{ $route }}" method="POST" enctype="multipart/form-data">
     @csrf
-    @method('{{$method}}')
+    @method($method)
     <div class="mb-3">
 
       <label for="title" class="form-label">Title</label>
