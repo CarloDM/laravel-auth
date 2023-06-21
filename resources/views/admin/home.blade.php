@@ -8,8 +8,6 @@
     <div class="">
       <a class="btn btn-success mb-4" href="{{route('admin.posts.create')}}">create post</a>
 
-
-
     </div>
 </div>
 @endsection

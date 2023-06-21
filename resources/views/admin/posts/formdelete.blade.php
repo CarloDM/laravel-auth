@@ -16,7 +16,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       <form
                       action="{{route('admin.posts.destroy', $post)}}"
-                      onsubmit="return confirm('confermi l eliminazione del post: {{$post->title}})"
+                      onsubmit="return confirm('confermi l eliminazione del post:' {{$post->title}} )"
                       method="POST"
                       >
                       @csrf
